@@ -1,4 +1,4 @@
-const ATJAUNOT = 5000;
+const ATJAUNOT = 1000;
 
 async function lasiChatu() {
     const atbilde = await fetch('/chats/lasi');
