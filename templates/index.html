@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewpoprt" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewpoprt" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='stils.css') }}" rel="stylesheet">
     <link
       href="{{ url_for('static', filename='favicon.ico') }}"
       rel="icon"
       type="image/x-icon"
     />
-    <title>     Start IT čats (Juris)    </title>
+    <title>     Start IT čats (Natalija)    </title>
   </head>
   <body onload="lasiChatu();", class="body">
     {% block saturs %}
