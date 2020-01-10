@@ -2,7 +2,7 @@ from flask import Flask, render_template, json, jsonify, request
 app = Flask('app')
 @app.route('/')
 def index_page():
-  return render_template('index.html')
+  return render_template('chats.html')
 @app.route('/health')
 def health_check():
   return "OK"
@@ -18,7 +18,7 @@ def ielasit_chatu():
 @app.route('/chats/suuti', methods = ['POST'])
 def suutu_zinju():
   dati=request.json
-  with open("chats.txt", "ra", newline=" ") as f:
+  with open("chats.txt", "a", newline=" ") as f:
     f.write(dati["chats"] + "\n")
       
   return jsonify({"chats":chata_rindas})
