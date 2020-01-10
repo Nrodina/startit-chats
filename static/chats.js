@@ -16,3 +16,22 @@ function raadiChatuVienkarsi(dati);
     }
 
     chataDiv.innerHTML= chats;
+
+    async function suutiZinju(){
+        let zinjasElemnts = document.getElementById('zinja');
+        let zinja = zinjasElemnts.nodeValue;
+
+        zinjasElemnts.nodeValue = "";
+
+        const atbilde = await fetch('/chats/suuti', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"chats": zinja})
+    
+        });
+    }
+    const datuObjektu = await atbilde.json();
+
+    raadiChatuVienkarsi(datuObjekts);
