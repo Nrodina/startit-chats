@@ -1,0 +1,1 @@
+console.log("Sveicinat no konsoles");
