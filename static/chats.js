@@ -1,37 +1,26 @@
-const ATJAUNOT = 1000;
-
-async function lasiChatu() {
-    const atbilde = await fetch('/chats/lasi');
-    const datuObjektu = await atbilde.json();
-    raadiChatuVienkarsi(datuObjekts);
-}
-
-function raadiChatuVienkarsi(dati);
-    const jaunaRinda = "</br>";
-    let chats = "";
-    let chataDiv = document.getElementById("chats");
-    for(let rinda of dati ['chats']){
-        chats = chats + rinda + jaunaRinda;
-
+function raadiChataRindas(dati) {
+    const chatUL = document.getElementById("chat");
+    // novaacam ieprieksheejo saturu
+    while (chatUL.firstChild) {
+        chatUL.firstChild.remove();
     }
-
-    chataDiv.innerHTML= chats;
-
-    async function suutiZinju(){
-        let zinjasElemnts = document.getElementById('zinja');
-        let zinja = zinjasElemnts.nodeValue;
-
-        zinjasElemnts.nodeValue = "";
-
-        const atbilde = await fetch('/chats/suuti', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({"chats": zinja})
-    
-        });
+    for (let rinda of dati["messages"]) {
+      chatLI = izveidoJaunuRindu(rinda.message);
+      chatUL.appendChild(chatLI);
     }
-    const datuObjektu = await atbilde.json();
-
-    raadiChatuVienkarsi(datuObjekts);
+    // noskrolleejam uz leju pie peedeejaa chata texta
+    var chatScrollBox = chatUL.parentNode;
+    chatScrollBox.scrollTop = chatScrollBox.scrollHeight;
+  }
+  
+  
+  function izveidoJaunuRindu(zinja) { 
+    let newLI = document.createElement("li");
+    newLI.className = "left clearfix"
+    let newDiv = document.createElement("div"); 
+    newDiv.className = "chat-body clearfix"
+    let newContent = document.createTextNode(zinja); 
+    newLI.appendChild(newDiv); 
+    newDiv.appendChild(newContent); 
+    return newLI;
+  }
