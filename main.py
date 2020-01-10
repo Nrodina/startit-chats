@@ -1,4 +1,4 @@
-from flask import Flask, render_template, json, jsonify
+from flask import Flask, render_template, json, jsonify, reguest
 app = Flask('app')
 @app.route('/')
 def index_page():
@@ -14,6 +14,16 @@ def ielasit_chatu():
     for rinda in f:
       chata_rindas.append(rinda)
 return jsonify({"chats":chata_rindas})
+
+@app.route('/chats/suuti', methods = ['POST'])
+def suuti_zinju():
+  dati = reguest.json
+
+with poen("chats.txt", "a", newline"")
+  
+return jsonify({"chats":chata_rindas})
+
+
 
 
 if __name__ == '__main__':
